@@ -1,4 +1,4 @@
-# Turtlebot Desktop Development Container 
+# CMS Desktop Development Container 
 
 This repository contains a ready-to-use **Docker-based ROS 1 Noetic** development environment for working with **Dingo Packages**. It includes Visual Studio Code support, useful extensions, and common ROS 1 packages preinstalled — making it easy to get started with TurtleBot simulation and development on any Linux machine.
 
@@ -18,8 +18,8 @@ This repository contains a ready-to-use **Docker-based ROS 1 Noetic** developmen
 
 ```bash
 git clone https://github.com/Cobot-Maker-Space/ros1-container.git
-cd turtlebot-desktop-container/src
 ```
+And then go inside the folder.
 
 ---
 
