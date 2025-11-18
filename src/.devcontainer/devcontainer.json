@@ -49,10 +49,6 @@
             "source=${localWorkspaceFolder}/../cache/noetic/build,target=/home/catkin_ws/build,type=bind",
             "source=${localWorkspaceFolder}/../cache/noetic/devel,target=/home/catkin_ws/devel,type=bind"
         ],
-        // For later uses run this command:
-        // "postCreateCommand": "colcon build --symlink-install"
-        
-        // For first time users and setup use this command, then you can change it to the above one after everything is cnmfigured
-        // "postCreateCommand": "catkin_make"
-        "postCreateCommand": "sudo chown -R user1:user1 /home/catkin_ws && rosdep update"
+
+        "postCreateCommand": "sudo chown -R user1:user1 /home/catkin_ws && rm -rf build/* devel/* && rosdep update && catkin_make"
     }
