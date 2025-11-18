@@ -1,0 +1,58 @@
+    {
+        "name": "ROS 2 Development Container",
+        "privileged": true,
+        "remoteUser": "user1",
+        // "image":"ros1-noetic-image:latest",
+        
+        "build": {
+           "dockerfile": "Dockerfile",
+           "args": {
+               "BASE_IMAGE": "osrf/ros:noetic-desktop-full",
+               "USERNAME": "user1"
+           }
+        },
+        "workspaceFolder": "/home/catkin_ws",
+        "workspaceMount": "source=${localWorkspaceFolder},target=/home/catkin_ws/src,type=bind",
+        "customizations": {
+            "vscode": {
+                "extensions":[
+                    "ms-vscode.cpptools",
+                    "ms-vscode.cpptools-themes",
+                    "twxs.cmake",
+                    "donjayamanne.python-extension-pack",
+                    "eamodio.gitlens",
+                    "ms-iot.vscode-ros"
+                ]
+            }
+        },
+        
+        "containerEnv": {
+            "DISPLAY": "${env:DISPLAY}",
+        },
+
+        "runArgs": [
+            "--net=host",
+            "-e", "DISPLAY",
+            "--device=/dev/video0",
+            "--device=/dev/dri",
+            "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
+            "--group-add=video"
+        ],
+
+
+
+        "mounts": [
+            // Comment the below line for MacOS or Windows Build as its meant for GPU acceleration Access on Linux
+            "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached",
+
+            
+            "source=${localWorkspaceFolder}/../cache/noetic/build,target=/home/catkin_ws/build,type=bind",
+            "source=${localWorkspaceFolder}/../cache/noetic/devel,target=/home/catkin_ws/devel,type=bind"
+        ],
+        // For later uses run this command:
+        // "postCreateCommand": "colcon build --symlink-install"
+        
+        // For first time users and setup use this command, then you can change it to the above one after everything is cnmfigured
+        // "postCreateCommand": "catkin_make"
+        "postCreateCommand": "sudo chown -R user1:user1 /home/catkin_ws && rosdep update"
+    }

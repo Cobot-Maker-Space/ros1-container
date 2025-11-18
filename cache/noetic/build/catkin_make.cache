@@ -1,0 +1,2 @@
+dingo/dingo_control:dingo/dingo_description:dingo/dingo_msgs:dingo/dingo_navigation:dingo_desktop/dingo_desktop:dingo_desktop/dingo_viz:dingo_simulator/dingo_gazebo:dingo_simulator/dingo_simulator
+-DCATKIN_DEVEL_PREFIX=/home/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/catkin_ws/install -G Unix Makefiles

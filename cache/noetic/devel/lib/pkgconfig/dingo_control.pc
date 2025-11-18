@@ -1,0 +1,8 @@
+prefix=/home/catkin_ws/devel
+
+Name: dingo_control
+Description: Description of dingo_control
+Version: 0.3.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
