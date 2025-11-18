@@ -47,6 +47,7 @@ RUN apt-get update && apt-get install -y \
     ros-noetic-interactive-markers \
     ros-noetic-twist-mux \
     ros-noetic-teleop-twist-joy \
+    ros-noetic-teleop-twist-keyboard \
     ros-noetic-robot-localization \
     ros-noetic-controller-manager \
     ros-noetic-joint-state-controller \
