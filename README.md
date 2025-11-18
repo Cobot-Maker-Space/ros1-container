@@ -79,7 +79,7 @@ By default, whatever you would be building and downloading in the `src` folder w
 ## 💡 Notes
 
 - Default user inside container is `user1` (root).
-- Workspace is mounted to `/home/ros2_ws/src`.
+- Workspace is mounted to `/home/catkin_ws/src`.
 - Includes support for Gazebo, SLAM, Navigation2, Teleop, Cartographer, and more.
 - VS Code extensions preinstalled for ROS, C++, Python, and Git.
 
