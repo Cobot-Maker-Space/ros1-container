@@ -33,10 +33,10 @@
         "runArgs": [
             "--net=host",
             "-e", "DISPLAY",
-            "--device=/dev/video0",
             "--device=/dev/dri",
             "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
-            "--group-add=video"
+            "--group-add=video",
+            "--group-add=plugdev"
         ],
 
 
@@ -47,7 +47,9 @@
 
             
             "source=${localWorkspaceFolder}/../cache/noetic/build,target=/home/catkin_ws/build,type=bind",
-            "source=${localWorkspaceFolder}/../cache/noetic/devel,target=/home/catkin_ws/devel,type=bind"
+            "source=${localWorkspaceFolder}/../cache/noetic/devel,target=/home/catkin_ws/devel,type=bind",
+            "source=/sys,target=/sys,type=bind",
+            "source=/dev,target=/dev,type=bind"
         ],
 
         "postCreateCommand": "sudo chown -R user1:user1 /home/catkin_ws && rm -rf build/* devel/* && rosdep update && catkin_make"
