@@ -35,6 +35,11 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     mesa-utils\
     terminator \
+    wget \
+    ca-certificates \
+    gnupg \
+    curl \
+    v4l-utils \
     python3-rosdep \
     python3-rosinstall \
     python3-rosinstall-generator \
@@ -66,9 +71,18 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip install flask flask-ask-sdk ask-sdk
 
+
+RUN mkdir -p /etc/udev/rules.d && \
+    wget https://raw.githubusercontent.com/IntelRealSense/librealsense/master/config/99-realsense-libusb.rules \
+    -O /etc/udev/rules.d/99-realsense-libusb.rules && \
+    # Add additional permissions for HID sensors (IMU)
+    echo 'SUBSYSTEM=="iio", MODE="0666", GROUP="plugdev"' >> /etc/udev/rules.d/99-realsense-libusb.rules && \
+    echo 'SUBSYSTEM=="video4linux", MODE="0666", GROUP="video"' >> /etc/udev/rules.d/99-realsense-libusb.rules
+
 # Source ROS setup
 RUN echo "source /opt/ros/noetic/setup.bash && source /home/catkin_ws/devel/setup.bash" >> /home/$USERNAME/.bashrc
-RUN usermod -aG video user1
+# RUN usermod -aG video user1
+RUN usermod -aG video,plugdev,dialout $USERNAME
 # Set default user
 USER $USERNAME
 
