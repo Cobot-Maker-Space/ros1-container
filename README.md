@@ -23,22 +23,26 @@ And then go inside the folder.
 
 ---
 
-### 2. Open in VS Code
-
-1. Launch VS Code.
-2. Click on Open in Folder option and then open the directory.
-3. Open the `src/` directory of this repo.
-4. You should see a `.devcontainer/` folder in the file tree.
-
----
-
-### 3. Reopen in Dev Container
+### 2. Open Terminal
 
 Open the PC's terminal and run:
 
 ```bash
 xhost +local:docker
 ```
+
+```bash
+cd ros1-container/src
+code .
+```
+
+
+### 3. Open in VS Code
+
+1. Launch VS Code.
+2. Check in the file menu, if you can see `src/`
+3. You should see a `.devcontainer/` folder in the file tree.
+
 Inside VS Code:
   - Press `Ctrl+Shift+P`
   - Type and select: `Dev Containers: Reopen in Container`
