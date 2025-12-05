@@ -77,6 +77,7 @@ By default, whatever you would be building and downloading in the `src` folder w
 | `Docker permission denied` | Make sure your user is added to the `docker` group: <br> `sudo usermod -aG docker $USER` <br> Then logout your user and then log back in and check. |
 | `Cannot access /dev/video0` | Add your user to the `video` group: <br> `sudo usermod -aG video $USER` |
 | When launching Gazebo simulations, if it takes too much time and exits at `Spawn service failed. Exiting.` | Do not press `Ctrl + C` Let it fail completely and cleanly and then close it and run it again. |
+| `ros* command not found` | At times, teh container need to be rebuilt. After the 2nd Step above: <br>  Press `Ctrl + Shift + P` <br> Choose `Rebuild and Reopen in Container` Wait for it to finish and then type in and check. |
 
 ---
 
